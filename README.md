@@ -57,3 +57,17 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+# Docker ile Çalıştırma
+
+Bu projeyi Docker ile çalıştırmak için aşağıdaki adımları izleyin:
+
+1. Docker imajını oluşturun:
+   
+   docker build -t huzel-angular .
+
+2. Docker container'ı başlatın:
+   
+   docker run -p 8080:80 huzel-angular
+
+Uygulama artık http://localhost:8080 adresinde çalışacaktır.
