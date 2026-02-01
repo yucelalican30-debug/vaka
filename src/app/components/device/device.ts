@@ -61,13 +61,13 @@ export class Device implements OnInit, OnDestroy {
 
   getDevices() {
     this.genericService.post<DeviceModel[]>('/api/Devices/GetAll', {}, (res) => {
-      console.log('Response:', res);
-      console.log('isSuccessful:', res.isSuccessful);
-      console.log('data:', res.data);
+      console.log('Yanıt:', res);
+      console.log('Başarılı:', res.isSuccessful);
+      console.log('Veriler:', res.data);
       if (res.isSuccessful && res.data) {
         this.devices = res.data;
         this.cdr.markForCheck();
-        console.log('Devices assigned:', this.devices);
+        console.log('Cihazlar yüklendi:', this.devices);
       }
     });
   }
@@ -93,7 +93,7 @@ export class Device implements OnInit, OnDestroy {
             Swal.fire('Hata!', 'Cihaz güncellenirken hata oluştu.', 'error');
           }
         }, (err) => {
-          console.error('Update error:', err);
+          console.error('Güncelleme hatası:', err);
           Swal.fire('Hata!', 'İşlem başarısız oldu.', 'error');
         });
       }
@@ -158,7 +158,7 @@ export class Device implements OnInit, OnDestroy {
             Swal.fire('Hata!', 'Cihaz eklenirken hata oluştu.', 'error');
           }
         }, (err) => {
-          console.error('Add error:', err);
+          console.error('Ekleme hatası:', err);
           Swal.fire('Hata!', 'İşlem başarısız oldu.', 'error');
         });
       }
@@ -180,7 +180,7 @@ export class Device implements OnInit, OnDestroy {
       if (result.isConfirmed) {
         console.log('Silme isteği gönderiliyor, ID:', id);
         this.genericService.post('/api/Devices/Delete', id, (res) => {
-          console.log('Delete response:', res);
+          console.log('Silme yanıtı:', res);
           if (res.isSuccessful) {
             Swal.fire('Silindi!', 'Cihaz başarıyla silindi.', 'success');
             // Cihazı array'den kaldır
@@ -192,7 +192,7 @@ export class Device implements OnInit, OnDestroy {
             Swal.fire('Hata!', 'Cihaz silinirken hata oluştu.', 'error');
           }
         }, (err) => {
-          console.error('Delete error:', err);
+          console.error('Silme hatası:', err);
           Swal.fire('Hata!', 'İşlem başarısız oldu.', 'error');
         });
       }
